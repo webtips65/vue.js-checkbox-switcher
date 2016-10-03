@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+			
+		<script src="switcher.min.js"></script>
+		<link rel="stylesheet" href="switcher.min.css">
+		
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		
+
+		<script src="vue.js"></script>
+	
+	</head>
+	<body>
+		<div id="app">
+			<label class="switch">
+			  <input v-checkbox id="test" type="checkbox">
+			  <div class="slider"></div>
+			</label>
+		</div>
+	</body>
+	
+	<script>
+		var app = new Vue({
+		  el: '#app',
+		  data: {
+			message: 'Hello Vue!'
+		  },
+		   directives: {
+				checkbox: {
+					bind: function (el, binding, vnode) {
+						Vue.nextTick(function () {
+						  $(el).switcher();
+						})					
+					}				
+				}
+			}
+		})
+	</script>
+<html>
